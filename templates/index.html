@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Hola Mundo</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<body>
+    <h1>Holi</h1>
+    <ul>
+        {% for pr in producto %}
+        <li>
+            {{ pr.nombre }} -
+            {{ pr.descripcion }}
+            <img src="{{ pr.imagen.url }}">
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
