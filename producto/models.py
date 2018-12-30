@@ -9,3 +9,6 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    class Meta: #Las Meta clases adentro de los modelos de Django sirven para adosar metadata a dichos modelos.
+        ordering = ('id',)

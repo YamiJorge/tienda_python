@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto Nuevo</title>
+</head>
+<body>
+    <h1>Ingrese un nuevo producto</h1>
+    <form method="POST">
+        <!-- Acá usamos csrf token como protección contra Cross-site request forgery (CSRF)
+        (falsificación de peticiones inter-sitio). -->
+        {% csrf_token %}
+        <!-- Acá desplegamos el formulario-->
+        {{ form.as_p }}
+        <button type="submit">Agregar</button>
+    </form>
+</body>
+</html>
