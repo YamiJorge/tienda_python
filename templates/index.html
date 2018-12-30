@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <body>
     <h1>Holi</h1>
+    <!-- Acá agregamos un enlace para crear un nuevo producto -->
+    <a href="{% url 'nuevo_producto' %}">Ingresar un nuevo producto</a>
     <ul>
         <!-- Acá iteramos para mostrar los productos que están en el sistema -->
         {% for pr in producto %}
