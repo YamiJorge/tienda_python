@@ -18,5 +18,7 @@ from . import views
 
 urlpatterns = [
     path('', views.hello_world, name = 'hello'),
-
+    path('producto/<int:pk>', views.detalle_producto, name= "detalle_producto")
+    #En versiones de Django posteriores a la 1.9, para referenciar la PK en la URL
+    # en este ejemplo es asi: path('producto/<int:pk>', views.detalle_producto, name= "detalle_producto")
 ]

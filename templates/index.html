@@ -10,11 +10,13 @@
     <h1>Holi</h1>
     <ul>
         {% for pr in producto %}
-        <li>
-            {{ pr.nombre }} -
-            {{ pr.descripcion }}
-            <img src="{{ pr.imagen.url }}">
-        </li>
+            <li>
+                <a href="{% url 'detalle_producto' pk=pr.pk %}">
+                    {{ pr.nombre }} -
+                </a>
+                {{ pr.descripcion }}
+                <img src="{{ pr.imagen.url }}">
+            </li>
         {% endfor %}
     </ul>
 
