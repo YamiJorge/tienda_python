@@ -35,7 +35,7 @@ def nuevo_producto(request):
         # además se agrega un request.FILES para solicitar archivos a cargar
         if form.is_valid(): #Si el form es válido
             product = form.save(commit=False) # entonces se guardará el producto ingresado
-            # agregando al false un parámetro commit=False
+            # agregando al form.save un parámetro commit=False
             product.save()
             return HttpResponseRedirect('/')# Una vez guardado redirige a la raíz
     else:

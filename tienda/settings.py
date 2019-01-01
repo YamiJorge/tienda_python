@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'producto.apps.ProductoConfig', #App producto agregada a las instaladas por Django
+    'cliente.apps.ClienteConfig', #App cliente agregada a las instaladas por Django
 ]
 
 MIDDLEWARE = [
