@@ -31,9 +31,11 @@ def detalle_producto(request, pk): #Acá se recibe un request y una PK
 
 def nuevo_producto(request):
     if request.method == 'POST': #Si la petición del método es igual a POST
-        form = ProductForm(request.POST) # entonces el form será el ProductForm solicitado
+        form = ProductForm(request.POST, request.FILES) # entonces el form será el ProductForm solicitado
+        # además se agrega un request.FILES para solicitar archivos a cargar
         if form.is_valid(): #Si el form es válido
-            product = form.save() # entonces se guardará el producto ingresado
+            product = form.save(commit=False) # entonces se guardará el producto ingresado
+            # agregando al false un parámetro commit=False
             product.save()
             return HttpResponseRedirect('/')# Una vez guardado redirige a la raíz
     else:

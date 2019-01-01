@@ -6,7 +6,9 @@
 </head>
 <body>
     <h1>Ingrese un nuevo producto</h1>
-    <form method="POST">
+    <!-- Ahora agregamos al form method un enctype "multipart/form-Data"
+    para poder agregar imagenes a nuestro formulario-->
+    <form method="POST" enctype="multipart/form-data">
         <!-- Acá usamos csrf token como protección contra Cross-site request forgery (CSRF)
         (falsificación de peticiones inter-sitio). -->
         {% csrf_token %}
