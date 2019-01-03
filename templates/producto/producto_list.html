@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Acá cargamos los archivos Static -->
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Hola Mundo</title>
+    <!-- Acá referenciamos el CSS de la carpeta Static -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<body>
+    <h1>Holi</h1>
+    <!-- Acá agregamos un enlace para crear un nuevo producto -->
+    <a href="{% url 'producto:nuevo_producto' %}">Ingresar un nuevo producto</a>
+    <ul>
+        <!-- Acá iteramos para mostrar los productos que están en el sistema
+         aunque ahora lo haremos desde un object_list-->
+        {% for pr in object_list %}
+            <li>
+                <!-- Acá enlazamos a una url donde veremos los detalles del producto mediante un ClassListView-->
+                <a href="{% url 'producto:detalle_producto' pr.id %}">
+                    <!-- Esto muestra el nombre del producto -->
+                    {{ pr.nombre }} -
+                </a>
+                <!-- Esto muestra la descripción del producto -->
+                {{ pr.descripcion }}
+                <!-- Esto muestra la imagen del producto -->
+                <img src="{{ pr.imagen.url }}">
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

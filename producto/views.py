@@ -3,14 +3,16 @@ from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from .models import Producto
 from .forms import ProductForm
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 
-def hello_world(request):
+"""def hello_world(request):
     producto = Producto.objects.order_by('id')
     template = loader.get_template('index.html')
     context = {
         'producto': producto
     }
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render(context, request))"""
 
 def detalle_producto(request, pk): #Acá se recibe un request y una PK
     producto = get_object_or_404(Producto, pk=pk)
@@ -46,3 +48,11 @@ def nuevo_producto(request):
         'form': form
     }
     return HttpResponse(template.render(context, request))
+
+class ListaProducto(ListView):# Se crea una clase de tipo ListView
+# para mostrar el modelo que en este caso será el de Producto
+    model = Producto
+
+class DetalleProducto(DetailView):# Se crea una clase de tipo DetailView
+# para mostrar el detalle del modelo que en este caso será el de Producto
+    model = Producto

@@ -16,9 +16,20 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+app_name='producto' #Agregamos un app_name para poder usar la propiedad de namespace
+# de lo contrario arrojará un error.
+
 urlpatterns = [
-    path('', views.hello_world, name = 'hello'),
-    path('producto/<int:pk>', views.detalle_producto, name= "detalle_producto"),
+    #path('', views.hello_world, name = 'hello'),
+
+    #Ahora reemplazaremos el "views.hello_world" por un ListView que mostrará lo mismo
+    path('', views.ListaProducto.as_view(), name = 'hello'),
+
+    #path('producto/<int:pk>', views.detalle_producto, name= "detalle_producto"),
+
+    #Ahora reemplazaremos el "views.detalle_producto" por un ListView que mostrará lo mismo
+    path('producto/<int:pk>', views.DetalleProducto.as_view(), name= "detalle_producto"),
+
     #En versiones de Django posteriores a la 1.9, para referenciar la PK en la URL
     # en este ejemplo es asi: path('producto/<int:pk>', views.detalle_producto, name= "detalle_producto")
 

@@ -19,9 +19,10 @@ from django.conf import settings # Se importa de django.conf la clase settings
 from django.conf.urls.static import static # Se importa de django.conf.urls.static la clase static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('producto.urls'))#Se agrega la url donde veremos los productos
+    path('', include('producto.urls', namespace='producto')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Se agrega una linea extra fuera de urlpatterns
 #  para poder obtener la imagen que subimos del producto
