@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <!-- Este formulario es para el login -->
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="login">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <h1>Crear Usuario</h1>
+    <!-- Este formulario es para el sign up (crear usuario) -->
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="signup">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <button type="submit">Crear Usuario</button>
+    </form>
+</body>
+</html>

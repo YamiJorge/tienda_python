@@ -8,7 +8,16 @@
     <!-- Acá referenciamos el CSS de la carpeta Static -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <body>
-    <h1>Holi</h1>
+    <h1>Holi
+    <!-- Si el usuario es autenticado, mostrará el nombre y un link para cerrar sesión -->
+    {% if user.is_authenticated %}
+        <!-- En el html debe configurarse la página a la que se redirija luego del logout -->
+        <h3>{{ user.username }} | <a href="{% url 'producto:logout' %}?next=/">Logout</a>
+    {% else %}
+        <a href="{% url 'producto:authentication' %}">Login</a>
+    {% endif %}
+    </h1>
+
     <!-- Acá agregamos un enlace para crear un nuevo producto -->
     <a href="{% url 'producto:nuevo_producto' %}">Ingresar un nuevo producto</a>
     <ul>
